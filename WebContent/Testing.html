@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<style type="text/css">
+header {
+	border: 1px solid red;
+	height: 200px;
+}
+
+.buttons {
+	margin: 10%;
+	text-align: center;
+}
+
+.btn-hover {
+	width: 200px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+	cursor: pointer;
+	margin: 20px;
+	height: 55px;
+	text-align: center;
+	border: none;
+	background-size: 300% 100%;
+	border-radius: 50px;
+	moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+	background-position: 100% 0;
+	moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+	outline: none;
+}
+
+.btn-hover.color-1 {
+	background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+	box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+main {
+	border: 1px solid blue;
+	height: 500px;
+}
+
+#kate {
+	float: left;
+}
+
+.form__group {
+	position: relative;
+	padding: 15px 0 0;
+	margin-top: 10px;
+	width: 50%;
+}
+
+.form__field {
+	font-family: inherit;
+	width: 100%;
+	border: 0;
+	border-bottom: 2px solid #9b9b9b;
+	outline: 0;
+	font-size: 1.3rem;
+	color: #fff;
+	padding: 7px 0;
+	background: transparent;
+	transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+	color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+	font-size: 1.3rem;
+	cursor: text;
+	top: 20px;
+}
+
+.form__label {
+	position: absolute;
+	top: 0;
+	display: block;
+	transition: 0.2s;
+	font-size: 1rem;
+	color: #9b9b9b;
+}
+
+.form__field:focus {
+	padding-bottom: 6px;
+	font-weight: 700;
+	border-width: 3px;
+	border-image: linear-gradient(to right, #11998e, #38ef7d);
+	border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+	position: absolute;
+	top: 0;
+	display: block;
+	transition: 0.2s;
+	font-size: 1rem;
+	color: #11998e;
+	font-weight: 700;
+}
+/* reset input */
+.form__field:required, .form__field:invalid {
+	box-shadow: none;
+}
+
+#search {
+	float: left;
+	width: 200px;
+}
+
+#bild {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:auto;
+}
+#hinzu {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+#innereinkauf {
+	width: 450px;
+	height: 450px;
+	margin: 9px;
+	padding: 15px;
+	border-style: solid;
+	border: 1px solid green;
+}
+</style>
+
+	<header>
+		<div id="navigation">
+			<form>
+				<h2 id="kate">Kategorien</h2>
+				<table>
+
+					<tr>
+						<td><button class="btn-hover color-1">Fleisch</button></td>
+						<td><button class="btn-hover color-1">Vegetarisch</button></td>
+						<td><button class="btn-hover color-1">Vegan</button></td>
+						<td rowspan="2"><div class="form__group field">
+								<input type="text" class="form__field" placeholder="Search"
+									name="search" id='search'> <label for="search"
+									class="form__label">Search...</label>
+							</div></td>
+					</tr>
+
+					<tr>
+						<td><button class="btn-hover color-1">Nudeln</button></td>
+						<td><button class="btn-hover color-1">Reis</button></td>
+						<td><button id="rezept-button" class="btn-hover color-1"
+								formaction="NewRecipe3.jsp">+Rezept</button></td>
+					</tr>
+
+
+				</table>
+
+			</form>
+		</div>
+	</header>
+
+
+	<main>
+		<table border="1" width="100%" height="100%">
+			<tr>
+				<td width="70%">sss</td>
+				<td width="30%"><div id="innereinkauf">
+						<img id="bild"
+							src="https://image.flaticon.com/icons/png/128/590/590510.png"
+							alt="Einkaufsliste" width="40px" height="40px">
+						<ul>
+
+							<jsp:useBean id="liste" class="beans.Einkaufsliste"
+								scope="session" />
+
+
+							<jsp:useBean id="alteEinkaufsliste"
+								class="beans.AlteEinkaufsliste" scope="session" />
+
+							<c:if test="${(fn:length(liste.allIngr)) > 0}">
+								<jsp:setProperty property="news" name="alteEinkaufsliste"
+									value="${liste.allIngr}" />
+							</c:if>
+
+
+
+
+							<c:if test="${(fn:length(alteEinkaufsliste.alteIngr)) > 0}">
+								<c:forEach items="${alteEinkaufsliste.alteIngr}" var="el">
+									<li><c:out value="${el}" /></li>
+								</c:forEach>
+							</c:if>
+
+
+
+						</ul>
+						<form>
+							<button id="hinzu" class="btn-hover color-1"
+								formaction="EinkaufslisteAnzeigen.html">Einkaufsliste erstellen</button>
+						</form>
+					</div></td>
+			</tr>
+		</table>
+	</main>
+</body>
+</html>

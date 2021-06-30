@@ -3,36 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title> Neues Rezept erstellen</title>
-
-    <style>
-        .content {
-            max-width: 500px;
-            margin: auto;
-        }
-        img{
-            margin-left: 20px;
-        }
-        .deleteButton{
-        background-color: LightCoral;
-        position: relative;
-        }
-        .desc{
-            width: 500px;
-            height: 250px;
-        }
-        .name{
-            width: 400px;
-        }
-
-        .break{
-            height: 50px;
-        }
-        
-        .tag{
-        width: 60px;
-        }
-
-    </style>
+	<link rel="stylesheet" type="text/css" href="NewRecipe2Style.css">
 </head>
 
 
@@ -44,7 +15,7 @@
     <div class="break"></div>
     
  
-<input name="Rezeptname" class="name" placeholder="Name des Gerichtes">
+<input name="Rezeptname" class="textInput" type="text" placeholder="Name des Gerichtes">
   <div class="break"></div>
  <select  name="Kategorie">
         <option>Kategorie A</option>
@@ -53,17 +24,15 @@
         <option>Kategorie D</option>
         <option>Kategorie E</option>
     </select>
-   
-   <input  name="tag" class="tag" placeholder="Tag">
-   <input  name="tag" class="tag" placeholder="Tag">
-   
-   
    <input  name="dauer" class="tag" type="number" placeholder="Dauer">
    <select  name="minSt">
         <option>Minuten</option>
         <option>Stunden</option>
         
     </select>
+    <br>
+     <input  name="tag" class="textInput" placeholder="Tag">
+  	 <input  name="tag" class="textInput" placeholder="Tag">
 
  <div class="break"></div>
 
@@ -73,8 +42,8 @@
 <h2>Zutaten:</h2>
 
 
- <input name="Zutat">
- <input type="number" name="Menge">
+ <input name="Zutat" class="textInput">
+ <input type="number" name="Menge" class="textInput">
     <select name="Einheit">
         <option>KG</option>
         <option>Liter</option>
@@ -84,8 +53,8 @@
     <button type="button" id="AddZutat" class="addZButton">+ Zutat</button> <br>
 
 
- <input name="Zutat">
- <input type="number" width="20" name="Menge">
+ <input name="Zutat" class="textInput" >
+ <input type="number" width="20" name="Menge" class="textInput">
     <select name="Einheit">
         <option>KG</option>
         <option>Liter</option>

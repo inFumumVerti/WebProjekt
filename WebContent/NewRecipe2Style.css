@@ -1,0 +1,64 @@
+@charset "ISO-8859-1";
+
+body{
+	font-family: 'Poppins', sans-serif; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.5rem;
+  background-color:#222222;
+}
+.textInput{
+	font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+  ::placeholder {
+    color: transparent;
+  }
+
+  :placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+
+.content {
+	max-width: 500px;
+	margin: auto;
+}
+
+img {
+	margin-left: 20px;
+}
+
+.deleteButton {
+	background-color: LightCoral;
+	position: relative;
+}
+
+.desc {
+	width: 500px;
+	height: 250px;
+}
+
+.name {
+	width: 400px;
+}
+
+.break {
+	height: 50px;
+}
+
+.tag {
+	width: 60px;
+}

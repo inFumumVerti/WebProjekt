@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+ 
+body{
+      background-color: #2F2A24;
+      height: 100vh;
+      font-family: "Poppins", sans-serif;
+}
+div.scrollPage{
+ 
+border-style: solid;
+border-width: 5px;
+border-color: solid darkgrey;
+overflow:auto; 
+height:330px;
+ 
+}
+ 
+ 
+div.rezepte{
+background-color: #d3d3d3;
+ 
+margin: 10px;}
+ 
+td.ee{
+ 
+font-size:1.5em;
+ 
+}
+ 
+table{
+border:0;}
+ 
+td.tag{
+ 
+font-size:0.8em;
+background-color: #fad08c;
+letter-spacing:1px;
+ 
+}
+ 
+td.uf{
+ 
+font-size:0.8em;
+background-color: #fad08c;
+letter-spacing:8px;
+ 
+}
+ 
+button.add {
+background-color: #26bf82;
+text-color: white;
+}
+ 
+ 
+ 
+ 
+
+#kat-text{
+            text-align: left;
+            display: inline-block;
+        }
+ 
+        #rezept-button{
+            background-color: #33FF3B;
+        }
+        nav{
+            background-color: #333;
+            height: 100px;      
+        }
+ 
+        nav li {
+            display: inline-block;
+            margin-left: 70px;
+            margin-top: 15px;
+        }   
+ 
+        nav ul{
+ 
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            left: 10px;
+            
+        }
+        
+ 
+ 
+
+#einkaufdiv{
+    width: 300px;
+    height: 750px;
+    position: fixed;
+    top:0;
+    right:0;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid red;
+    
+    overflow:hidden;
+}
+#bild{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+#innereinkauf{
+    width: 250px;
+    height: 350px;
+    margin: 9px;
+    padding: 15px;
+    border-style: solid;
+    border: 5px solid darkgrey;
+}
+#hinzu{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+ 
+ 
+#btn {
+  background: #222;
+  height: 50px;
+  min-width: 150px;
+  border: none;
+  border-radius: 10px;
+  color: #eee;
+  font-size: 40px;
+  font-family: 'Cookie', cursive;
+  position: relative;
+  transition: 1s;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding-top: 5px;
+}
+ 
+#btn #circle {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  overflow: hidden;
+  transition: 500ms;
+}
+ 
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+ 
+#btn:hover {
+  background: transparent;
+}
+ 
+#btn:hover #circle {
+  height: 50px;
+  width: 150px;
+  left: 0;
+  border-radius: 0;
+  border-bottom: 2px solid #eee;
+}
+ 
+#checklist {
+     --background: #fff;
+     --text: #414856;
+     --check: #4f29f0;
+     --disabled: #c3c8de;
+     --width: 100px;
+     --height: 140px;
+     --border-radius: 10px;
+     background: var(--background);
+     width: var(--width);
+     height: var(--height);
+     border-radius: var(--border-radius);
+     margin-right: 200px;
+     margin-top: 200px;
+     float: right;
+     box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+     padding: 30px 45px;
+     display: grid;
+     grid-template-columns: 30px auto;
+     align-items: center;
+}
+ #checklist label {
+     color: var(--text);
+     position: relative;
+     cursor: pointer;
+     display: grid;
+     align-items: center;
+     width: fit-content;
+     transition: color 0.3s ease;
+}
+ #checklist label::before, #checklist label::after {
+     content: "";
+     position: absolute;
+}
+ #checklist label::before {
+     height: 2px;
+     width: 8px;
+     left: -27px;
+     background: var(--check);
+     border-radius: 2px;
+     transition: background 0.3s ease;
+}
+ #checklist label:after {
+     height: 4px;
+     width: 4px;
+     top: 8px;
+     left: -25px;
+     border-radius: 50%;
+}
+ #checklist input[type="checkbox"] {
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     position: relative;
+     height: 15px;
+     width: 15px;
+     outline: none;
+     border: 0;
+     margin: 0 15px 0 0;
+     cursor: pointer;
+     background: var(--background);
+     display: grid;
+     align-items: center;
+}
+ #checklist input[type="checkbox"]::before, #checklist input[type="checkbox"]::after {
+     content: "";
+     position: absolute;
+     height: 2px;
+     top: auto;
+     background: var(--check);
+     border-radius: 2px;
+}
+ #checklist input[type="checkbox"]::before {
+     width: 0px;
+     right: 60%;
+     transform-origin: right bottom;
+}
+ #checklist input[type="checkbox"]::after {
+     width: 0px;
+     left: 40%;
+     transform-origin: left bottom;
+}
+ #checklist input[type="checkbox"]:checked::before {
+     animation: check-01 0.4s ease forwards;
+}
+ #checklist input[type="checkbox"]:checked::after {
+     animation: check-02 0.4s ease forwards;
+}
+ #checklist input[type="checkbox"]:checked + label {
+     color: var(--disabled);
+     animation: move 0.3s ease 0.1s forwards;
+}
+ #checklist input[type="checkbox"]:checked + label::before {
+     background: var(--disabled);
+     animation: slice 0.4s ease forwards;
+}
+ #checklist input[type="checkbox"]:checked + label::after {
+     animation: firework 0.5s ease forwards 0.1s;
+}
+ @keyframes move {
+     50% {
+         padding-left: 8px;
+         padding-right: 0px;
+    }
+     100% {
+         padding-right: 4px;
+    }
+}
+ @keyframes slice {
+     60% {
+         width: 100%;
+         left: 4px;
+    }
+     100% {
+         width: 100%;
+         left: -2px;
+         padding-left: 0;
+    }
+}
+ @keyframes check-01 {
+     0% {
+         width: 4px;
+         top: auto;
+         transform: rotate(0);
+    }
+     50% {
+         width: 0px;
+         top: auto;
+         transform: rotate(0);
+    }
+     51% {
+         width: 0px;
+         top: 8px;
+         transform: rotate(45deg);
+    }
+     100% {
+         width: 5px;
+         top: 8px;
+         transform: rotate(45deg);
+    }
+}
+ @keyframes check-02 {
+     0% {
+         width: 4px;
+         top: auto;
+         transform: rotate(0);
+    }
+     50% {
+         width: 0px;
+         top: auto;
+         transform: rotate(0);
+    }
+     51% {
+         width: 0px;
+         top: 8px;
+         transform: rotate(-45deg);
+    }
+     100% {
+         width: 10px;
+         top: 8px;
+         transform: rotate(-45deg);
+    }
+}
+ @keyframes firework {
+     0% {
+         opacity: 1;
+         box-shadow: 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0;
+    }
+     30% {
+         opacity: 1;
+    }
+     100% {
+         opacity: 0;
+         box-shadow: 0 -15px 0 0px #4f29f0, 14px -8px 0 0px #4f29f0, 14px 8px 0 0px #4f29f0, 0 15px 0 0px #4f29f0, -14px 8px 0 0px #4f29f0, -14px -8px 0 0px #4f29f0;
+    }
+}
