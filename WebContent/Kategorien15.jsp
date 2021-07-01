@@ -169,7 +169,7 @@ CSS
 
 	};
 
-	req.open('GET', 'DB-KategorieZ.html', true);
+	req.open('GET', 'DB-KategorieE.html', true);
 
 	req.send();
 </script>

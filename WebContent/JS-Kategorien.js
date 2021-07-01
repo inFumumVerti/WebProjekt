@@ -75,6 +75,3 @@ req.open('GET', 'DB-KategorieZ.html', true);
 
 
 req.send();
-
-
-

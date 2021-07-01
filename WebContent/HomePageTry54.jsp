@@ -7,7 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Homepage</title>
-<link rel="stylesheet" type="text/css" href="HomePage54.css">
+<link rel="stylesheet" type="text/css" href="HomeAktuell.css">
 </head>
 <body>
 <script type="text/javascript">
@@ -79,15 +79,15 @@
 	function buttonnext(){
 		if (counter == 0){
 			counter++;
-			request("DB-KategorieX.html",false);
+			request("DB-KategorieE.html",false);
 		}
 		else if (counter == 1){
 			counter++;
-			request("DB-KategorieY.html",false); //no id
+			request("DB-KategorieE.html",false); //no id
 		}
 		else if (counter == 2){
 			counter++;
-			request("DB-KategorieZ.html",false);
+			request("DB-KategorieE.html",false);
 		}
 		else if (counter == 3){
 			counter = 0;
@@ -97,7 +97,7 @@
 	function buttonprevious(){
 		if (counter == 0){
 			counter = 3;
-			request("DB-KategorieZ.html",false);
+			request("DB-KategorieE.html",false);
 		}
 		else if (counter == 1){
 			counter--;
@@ -105,11 +105,11 @@
 		}
 		else if (counter == 2){
 			counter--;
-			request("DB-KategorieX.html",false);
+			request("DB-KategorieE.html",false);
 		}
 		else if (counter == 3){
 			counter--;
-			request("DB-KategorieY.html",false); // no id
+			request("DB-KategorieE.html",false); // no id
 		}
 	}
 </script>
@@ -157,35 +157,49 @@
 						<img id="bild"
 							src="https://image.flaticon.com/icons/png/128/590/590510.png"
 							alt="Einkaufsliste" width="40px" height="40px">
-						<ul>
+							
+							
+							
+						<jsp:useBean id="liste" class="beans.Einkaufsliste" scope="session"/>
+	
+		
+	   <jsp:useBean id="alteEinkaufsliste" class="beans.AlteEinkaufsliste" scope="session"/>
+	   
+	   <c:if test="${(fn:length(liste.allIngr)) > 0}" >
+	   			<jsp:setProperty property="news" name="alteEinkaufsliste" value="${liste.allIngr}"/>
+	   </c:if>
+	
+	
+		<div id="checklist">
+		
+	<c:if test="${(fn:length(alteEinkaufsliste.alteIngr)) > 0}" >	
+		<% int counter=0; %>
+			
+	   			<c:forEach items="${alteEinkaufsliste.alteIngr}" var="el">
+	   			<% if( counter<15){ %>
+	   			<% counter++; %>
+	   			
+	   			<input type="checkbox" ><label ><c:out value="${el}"/></label>  
+	   			
+	   			<% } %>
+	   			
+					
+					
+				
+	   			</c:forEach>
+	   			
+	   			
+		</c:if>
+	
+	</div>
 
-							<jsp:useBean id="liste" class="beans.Einkaufsliste"
-								scope="session" />
 
-
-							<jsp:useBean id="alteEinkaufsliste"
-								class="beans.AlteEinkaufsliste" scope="session" />
-
-							<c:if test="${(fn:length(liste.allIngr)) > 0}">
-								<jsp:setProperty property="news" name="alteEinkaufsliste"
-									value="${liste.allIngr}" />
-							</c:if>
-
-
-
-
-							<c:if test="${(fn:length(alteEinkaufsliste.alteIngr)) > 0}">
-								<c:forEach items="${alteEinkaufsliste.alteIngr}" var="el">
-									<li><c:out value="${el}" /></li>
-								</c:forEach>
-							</c:if>
-
-
-
-						</ul>
-					</div><form>
+ </div>
+					<form>
 							
   <button id="hinzu" class="btn-hover color-8" formaction="EinkaufslisteAnzeigen.html">Einkaufsliste erstellen</button>
+
+
 
 						</form></td>
 			</tr>

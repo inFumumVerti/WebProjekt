@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<form action="SaveRecipe" method="get" >
+
 		<h1>Neues Rezept erstellen</h1>
 		<div class="form__group field">
 			<input type="text" class="form__field" placeholder="Name"
@@ -31,9 +33,9 @@
 			<option>Kategorie E</option>
 		</select>
 		<div class="form__group field">
-			<input type="text" class="form__field" placeholder="Tag" name="tag"
+			<input name="tag" type="text" class="form__field" placeholder="Tag" name="tag"
 				id='tag' required /> <label for="tag" class="form__label">Tags</label>
-			<input type="text" class="form__field" placeholder="Tag2" name="tag2"
+			<input name="tag" type="text" class="form__field" placeholder="Tag2" name="tag2"
 				id='tag2' required />
 		</div>
 		<br>
@@ -41,13 +43,13 @@
 		<div class="form__group field">
 			<table>
 				<tr>
-					<td width="40%"><input type="text" class="form__field"
-						placeholder="Zutat" name="zutat" id='zutat' required /> <label
+					<td width="40%"><input  type="text" class="form__field"
+						placeholder="Zutat" name="Zutat" id='zutat' required /> <label
 						for="zutat" class="form__label">Zutat</label></td>
 					<td width="40%"><input type="text" class="form__field"
-						placeholder="Menge" name="menge" id='menge' required /><label
+						placeholder="Menge" name="Menge" id='menge' required /><label
 						for="menge" class="form__label">Menge</label></td>
-					<td width="20%"><select name="Menge" class="select-wrapper">
+					<td width="20%"><select name="Einheit" class="select-wrapper">
 							<option>Gramm</option>
 							<option>Kilogramm</option>
 							<option>Liter</option>
@@ -66,10 +68,10 @@
 		</table>		
 			
 		<h1>Beschreibung</h1>
-		<textarea rows="30" cols="100" placeholder="Deine Beschreibung..."></textarea>
+		<textarea rows="30" cols="100" name="Beschreibung" placeholder="Deine Beschreibung..."></textarea>
 		<br>
 		<button type="submit" id="subm" class="btn-hover color-1">Bestätigen</button>
 
-
+</form>
 </body>
 </html>
