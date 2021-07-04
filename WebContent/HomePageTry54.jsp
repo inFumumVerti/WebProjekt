@@ -47,7 +47,7 @@
 						var path = '${pageContext.request.contextPath}/images/' + rezeptID + '.jpg';
 						var bild = '<td align="center" width="300"><image width="300px" height="300px" src ="' + path +'"></td>';
 						
-						newDiv.innerhtml = newDiv.innerHTML = '<form action="IngredientsCalc" method="get"> <table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td>' + bild + tempstring + '<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
+						newDiv.innerHTML = '<form action="IngredientsCalc" method="get"> <table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td>' + bild + tempstring + '<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
 						
 						var beschreibung = document.getElementsByClassName("be"); // Rezeptzubereitung ausblenden
 	
