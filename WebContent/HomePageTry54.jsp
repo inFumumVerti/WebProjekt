@@ -7,39 +7,50 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Homepage</title>
-<link rel="stylesheet" type="text/css" href="HomeAktuell.css">
+
+<link rel="stylesheet" type="text/css" href="HomePage54.css">
+<script src="jquery-3.6.0.js"></script>
+
 </head>
 <body>
 <script type="text/javascript">
 	var counter = 0
 	function request(filename,create){
 		var oreq = new XMLHttpRequest();
-	
+		var tempstring = "";
 		oreq.onreadystatechange = function() {
 			if (oreq.readyState == 4) {
 				if (oreq.status == 200) {
 	
 					var searchId = '.'; // Gesuchte ID-Rezept
 					str = '\u003ctable[^\0@]*@*' + searchId
-							+ '[^\0i]*[^@]*\u002ftable\u003e'; // regex für ID-Rezept
+							+ '[^\0i]*[^@]*\u002ftable\u003e'; // regex fÃ¼r ID-Rezept
 					var reg = new RegExp(str, 'g');
 					rezepte = oreq.responseText.match(reg); // suche naach dem ID-Rezept
 	
-					if (rezepte != null) { // prüfung, ob das vohanden ist 
+					if (rezepte != null) { // prÃ¼fung, ob das vohanden ist 
 						var random = Math.floor(Math.random() * rezepte.length)
 						var my_div = newDiv = null;
 						if (create == false){
 							newDiv = document.getElementById("rezeptBlock");
-							newDiv.innerHTML = '<form action="IngredientsCalc" method="get">	<table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td> <td  align="center" width="300"> Bild</td><td id="tdRezept" >'+ rezepte[random] + '</td>		<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
 						}
 						else{
-							var newDiv = document.createElement("div"); // ein Kontainer erstellen für die Kategorie
+							var newDiv = document.createElement("div"); // ein Kontainer erstellen fÃ¼r die Kategorie
 							newDiv.setAttribute("id","rezeptBlock");
 							newDiv.setAttribute("class","rezepte");
-							newDiv.innerHTML = '<form action="IngredientsCalc" method="get">	<table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td> <td  align="center" width="300"> Bild</td><td id="tdRezept" >'+ rezepte[random] + '</td>		<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
+							newDiv.innerHTML = '';
 							my_div = document.getElementById("out");
 							my_div.appendChild(newDiv);
 						}
+						
+						tempstring = '<td id="tdRezept" >'+ rezepte[random] + '</td>';
+						var rezeptID = $('#tdRezept','<div><table>'+ tempstring +'</table></div>').children().attr('id'); //get id of table in Kategorie
+						console.log(rezeptID);
+						var path = '${pageContext.request.contextPath}/images/' + rezeptID + '.jpg';
+						var bild = '<td align="center" width="300"><image width="300px" height="300px" src ="' + path +'"></td>';
+						
+						newDiv.innerHTML = '<form action="IngredientsCalc" method="get"> <table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td>' + bild + tempstring + '<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
+						
 						var beschreibung = document.getElementsByClassName("be"); // Rezeptzubereitung ausblenden
 	
 						for (i = 0; i < beschreibung.length; i++) {
@@ -51,7 +62,7 @@
 							zutatenliste[i].innerHTML = "";
 						}
 	
-						var zutatenServlet = document.getElementsByClassName("ser"); // Zutaten für Servlet-Bearbeitung ausblenden
+						var zutatenServlet = document.getElementsByClassName("ser"); // Zutaten fÃ¼r Servlet-Bearbeitung ausblenden
 						for (i = 0; i < zutatenServlet.length; i++) {
 							zutatenServlet[i].innerHTML ="" ;
 						}
@@ -59,8 +70,6 @@
 						var my_div = newDiv = null;
 						var newDiv = document.getElementById("rezeptBlock");
 						newDiv.innerHTML = '<button type="button" onclick="buttonprevious()">Previous</button>:(<button type="button" onclick="buttonnext()">Next</button>';
-						my_div = document.getElementById("out");
-						my_div.appendChild(newDiv);
 					}
 	
 				}
@@ -73,8 +82,10 @@
 		oreq.open('GET', filename, true);
 		oreq.send();
 	}
-	window.addEventListener('DOMContentLoaded', (event) => {
-		counter = 0;request("DB-KategorieE.html",true);
+	$(document).ready(function() {
+		counter = 0;
+		request("DB-KategorieE.html",true);
+		$('#rezeptBlock').css( "border", "3px solid pink" );
 	});
 	function buttonnext(){
 		if (counter == 0){

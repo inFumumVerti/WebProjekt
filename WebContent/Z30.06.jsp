@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Homepage</title>
+
+<title>Kategorien</title>
 <link rel="stylesheet" type="text/css" href="Z55.css">
 </head>
 <body>
@@ -20,16 +21,18 @@ req.onreadystatechange=function (){
 	
 			
 			var searchId ='.'; // Gesuchte ID-Rezept
-			str='\u003ctable[^\0@]*@*'+searchId+'[^\0i]*[^@]*\u002ftable\u003e';	 // regex für ID-Rezept
+			str='\u003ctable[^\0@]*@*'+searchId+'[^\0i]*[^@]*\u002ftable\u003e';	 // regex fÃ¼r ID-Rezept
 			var reg= new RegExp(str, 'g');
 			rezepte=req.responseText.match(reg); // suche naach dem ID-Rezept
 			
-			if(rezepte!=null){ // prüfung, ob das vohanden ist 
+			if(rezepte!=null){ // prÃ¼fung, ob das vohanden ist 
 			
-			for(n=0;n<rezepte.length; n++){ // es können mehrere Rezepte der Suche entsprechen
+			for(n=0;n<rezepte.length; n++){ // es kÃ¶nnen mehrere Rezepte der Suche entsprechen
 			var my_div = newDiv = null;
-			var newDiv = document.createElement("div"); // für jeden Rezept wird ein neues Kontainer erstellt und mit den Daten aus der Datenbank befüllt
-	        newDiv.innerHTML = '<div id="rezeptBlock" class="rezepte"> <form action="IngredientsCalc" method="get">	<table border="1"  ><tr> <td  align="center" width="100"> Bild</td><td id="tdRezept" >'+rezepte[n]+'</td>		<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td>	</tr></table> </form>';
+			var newDiv = document.createElement("div"); // fÃ¼r jeden Rezept wird ein neues Kontainer erstellt und mit den Daten aus der Datenbank befÃ¼llt
+
+	        newDiv.innerHTML = '<div id="rezeptBlock" class="rezepte"> <form action="IngredientsCalc" method="get">	<table border="1" ><tr> <td  align="center" width="100px" > Bild</td><td id="tdRezept" width="450px" >'+rezepte[n]+'</td>		<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td>	</tr></table> </form>';
+
 			my_div = document.getElementById("out");
 	    	my_div.appendChild(newDiv);
 	    	
@@ -51,7 +54,7 @@ req.onreadystatechange=function (){
 	    	}
 			
 			
-			var zutatenServlet = document.getElementsByClassName("ser"); // Zutaten für Servlet-Bearbeitung ausblenden
+			var zutatenServlet = document.getElementsByClassName("ser"); // Zutaten fÃ¼r Servlet-Bearbeitung ausblenden
 	    	for (i=0; i<zutatenServlet.length; i++){
 	    		//zutatenServlet[i].innerHTML ="" ;
 	    	}
@@ -75,7 +78,9 @@ req.onreadystatechange=function (){
 };
 
 
+
 req.open('GET', 'DB-KategorieE.html', true);
+
 
 
 
@@ -145,15 +150,16 @@ req.send();
 		<% int counter=0; %>
 			
 	   			<c:forEach items="${alteEinkaufsliste.alteIngr}" var="el">
+
 	   			<% if( counter<15){ %>
+
+	   			<% if( counter<17){ %>
+
 	   			<% counter++; %>
 	   			
 	   			<input type="checkbox" ><label ><c:out value="${el}"/></label> 
 	   			
 	   			<% } %>
-	   			
-					
-					
 				
 	   			</c:forEach>
 	   			
@@ -165,7 +171,9 @@ req.send();
 
  </div>
 <div class="cont">	
+
 <button id="hinzu" type="button" class="btn"><span id="span">Einkaufsliste erstellen</span><img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="62" width="62"></button>
+
 	
    
 
