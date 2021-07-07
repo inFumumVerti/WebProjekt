@@ -3,74 +3,35 @@ package beans;
 ////Hier sollte eine neue Zutate mit der Alteneinkaufsliste kulkuliert werden
 
 public class Einkaufsliste {
-	
-	
-	
 
-	
-
-	
-	private String[] allIngr;
-	
-	public Einkaufsliste() {
-		
-	
-		allIngr = new String[0];
-		//allIngr[0]="";
+    private String[] allIngr;
+    private String[] allMenge;
+    private String[] allEinheit;
 
 
-		
-		
-	}
-	
-	public void setNew(String line) {
-		
-		
-		String[] zusatz=allIngr;
-		
-		this.allIngr=new String[allIngr.length+1];
-		for (int i=1;i<allIngr.length;i++) {
-			this.allIngr[i]=zusatz[i-1];
-		}
-		this.allIngr[0]=line;
-		
-	
-		
-		
-	}
-	
-public void setNews(String[] line) {
-		
-		
-		String[] zusatz=allIngr;
-		
-		this.allIngr=new String[allIngr.length+line.length];
-		
-		for (int i=0;i<line.length;i++) {
-			this.allIngr[i]=line[i];
-		}
-		for (int i=line.length;i<allIngr.length;i++) {
-			this.allIngr[i]=zusatz[i-line.length];
-		}
-		//this.allIngr[0]=line;
-		
-	
-		
-		
-	}
-	
+    public Einkaufsliste() {
 
-
-	public String[] getAllIngr() {
-		return allIngr;
-	}
-
-	public void setAllIngr(String[] allIngr) {
-		
-		this.allIngr = allIngr;
-		
-	}
+        allIngr = new String[0];
+        allMenge = new String[0];
+        allEinheit = new String[0];
+        }
 
 
 
-}
+    public void setAllNew(String[] ingr,String[] menge, String[] einheiten) {
+        this.allIngr=ingr;
+        this.allMenge=menge;
+        this.allEinheit=einheiten;
+
+        }
+
+
+
+
+public String[] getAllIngr() {    return allIngr;}
+public String[] getAllMenge() {    return allMenge;}
+public String[] getAllEinheit() {return allEinheit;}
+
+
+
+    }

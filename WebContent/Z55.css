@@ -14,6 +14,17 @@ h2{
 	color:white;
 }
 
+input[type=submit]{
+	
+	height: 100%;
+}
+
+
+.vorschau{
+	height: 170px;
+}
+
+
 .buttons {
 	margin: 10%;
 	text-align: center;
