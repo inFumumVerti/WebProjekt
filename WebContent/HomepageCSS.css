@@ -74,6 +74,7 @@ h1{
 	 font-size: 1.5rem;
 	 background-color: #222;
 }
+
 .buttons {
     margin: 10%;
     text-align: center;
@@ -182,12 +183,15 @@ select:focus::-ms-value {
 }
 
 #innereinkauf {
-	width: 250px;
+
+		width: 250px;
 	height: 500px;
 	margin: 9px;
 	padding: 15px;
 	border-style: solid;
 	border: 1px solid green;
+	
+	
 }
 
 #hinzu {
@@ -212,3 +216,15 @@ select:focus::-ms-value {
 #search{
 	width:200px;
 }
+
+
+
+
+
+
+
+
+
+
+
+

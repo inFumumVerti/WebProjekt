@@ -144,7 +144,10 @@ main {
 	margin: 9px;
 	padding: 15px;
 	border-style: solid;
-	border: 1px solid green;
+	border-width: 3px;
+	border-image: linear-gradient(to right, #11998e, #38ef7d);
+	border-image-slice: 1;
+	
 }
 
 #hinzu {

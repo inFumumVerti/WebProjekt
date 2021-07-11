@@ -17,55 +17,44 @@ import beans.Einkaufsliste;
  */
 @WebServlet("/IngredientsCalc")
 public class IngredientsCalc extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	
-
-	private void doGetOrPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// Bean erzeugen und im Request-Scope ablegen
-		
-		Einkaufsliste liste= new Einkaufsliste();
-		AlteEinkaufsliste alteliste= new AlteEinkaufsliste();
-		request.setAttribute("liste", liste);
-		
-		
-
-		// Parameter einlesen
-		liste.setAllIngr(alteliste.getAlteIngr());
-		//liste.setNew(request.getParameter("newIngr"));
-		
-		liste.setNews(request.getParameterValues("newIngr"));
-		
-		
-
-		// An korrekte Folgeseite weiterleiten
-	
-		
-		
-
-	
-		request.getServletContext().getRequestDispatcher("/Z30.06.jsp").forward(request, response);
-	
-	}
-			
-	
+    private static final long serialVersionUID = 1L;
 
 
-		
 
-	
-
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		doGetOrPost(request, response);
-	}
-	
+    private void doGetOrPost(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
 
 
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		doGetOrPost(request, response);
-	}
+        Einkaufsliste liste= new Einkaufsliste();
+
+
+        request.setAttribute("liste", liste);
+
+
+        // Parameter einlesen
+        liste.setAllNew(request.getParameterValues("newIngr"), request.getParameterValues("newMenge"),request.getParameterValues("newEinheit"));
+
+        request.getServletContext().getRequestDispatcher("/Z30.06.jsp").forward(request, response);
+
+    }
+
+
+
+
+
+
+
+
+    protected void doGet(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+        doGetOrPost(request, response);
+    }
+
+
+
+    protected void doPost(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+        doGetOrPost(request, response);
+    }
 
 }

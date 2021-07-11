@@ -14,17 +14,6 @@ h2{
 	color:white;
 }
 
-input[type=submit]{
-	
-	height: 100%;
-}
-
-
-.vorschau{
-	height: 170px;
-}
-
-
 .buttons {
 	margin: 10%;
 	text-align: center;
@@ -68,7 +57,7 @@ input[type=submit]{
     box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
 main {
-	
+
 	height: 600px;
 }
 
@@ -160,7 +149,7 @@ div.scrollPage {
 }
 
 #innereinkauf {
-	margin-left: 0;
+	margin-right: 70px;
 	width: 300px;
 	height: 330px;
 	margin-left: 70px;
