@@ -111,12 +111,12 @@ public class SaveRecipe extends HttpServlet {
 		
 		switch(kategorie) {
 		case "Kategorie A": 
-			 dbKategorie= new File ( "C:\\Users\\z0047ynv\\eclipse-workspace\\27.06.2021\\WebContent\\DB-KategorieF.html");
+			 dbKategorie= new File ( "C:\\Users\\Admin\\git\\WebProjekt\\WebContent\\DB-KategorieF.html");
 			break;
 		case "Kategorie B": 
-			 dbKategorie= new File ( "C:\\Users\\z0047ynv\\eclipse-workspace\\27.06.2021\\WebContent\\DB-KategorieY.html");
+			 dbKategorie= new File ( "C:\\Users\\Admin\\git\\WebProjekt\\WebContent\\DB-KategorieY.html");
 			 break;
-		default:  dbKategorie= new File ( "C:\\Users\\z0047ynv\\eclipse-workspace\\27.06.2021\\WebContent\\DB-KategorieZ.html");
+		default:  dbKategorie= new File ( "C:\\Users\\Admin\\git\\WebProjekt\\WebContent\\DB-KategorieZ.html");
 	
 
 		

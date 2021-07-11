@@ -24,7 +24,7 @@
 	
 					var searchId = '.'; // Gesuchte ID-Rezept
 					str = '\u003ctable[^\0@]*@*' + searchId
-							+ '[^\0i]*[^@]*\u002ftable\u003e'; // regex fÃ¼r ID-Rezept
+							+ '[^\0i]*[^@]*\u002ftable\u003e'; // regex für ID-Rezept
 					var reg = new RegExp(str, 'g');
 					rezepte = oreq.responseText.match(reg); // suche naach dem ID-Rezept
 	
@@ -71,6 +71,7 @@
 						var newDiv = document.getElementById("rezeptBlock");
 						newDiv.innerHTML = '<button type="button" onclick="buttonprevious()">Previous</button>:(<button type="button" onclick="buttonnext()">Next</button>';
 					}
+					newDiv.innerHTML = '<table ><tr><td><div id="rezeptBlock" class="rezepte"> <form action="IngredientsCalc" method="get">    <table border="1"  ><tr> <td  align="center" width="100px" > Bild</td><td id="tdRezept" width="450px" >'+rezepte[n]+'</td>        <td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td>    </tr></table></form></div></td><td ><div class="vorschau" style="height:100%;" ></div></td></tr><table>';
 	
 				}
 				if (oreq.status == 404) {
@@ -84,43 +85,43 @@
 	}
 	$(document).ready(function() {
 		counter = 0;
-		request("DB-KategorieE.html",true);
+		request("DB-KategorieP.html",true);
 		$('#rezeptBlock').css( "border", "3px solid pink" );
 	});
 	function buttonnext(){
 		if (counter == 0){
 			counter++;
-			request("DB-KategorieE.html",false);
+			request("DB-KategorieP.html",false);
 		}
 		else if (counter == 1){
 			counter++;
-			request("DB-KategorieE.html",false); //no id
+			request("DB-KategorieP.html",false); //no id
 		}
 		else if (counter == 2){
 			counter++;
-			request("DB-KategorieE.html",false);
+			request("DB-KategorieP.html",false);
 		}
 		else if (counter == 3){
 			counter = 0;
-			request("DB-KategorieE.html",false);
+			request("DB-KategorieP.html",false);
 		}
 	}
 	function buttonprevious(){
 		if (counter == 0){
 			counter = 3;
-			request("DB-KategorieE.html",false);
+			request("DB-KategorieP.html",false);
 		}
 		else if (counter == 1){
 			counter--;
-			request("DB-KategorieE.html",false);
+			request("DB-KategorieP.html",false);
 		}
 		else if (counter == 2){
 			counter--;
-			request("DB-KategorieE.html",false);
+			request("DB-KategorieP.html",false);
 		}
 		else if (counter == 3){
 			counter--;
-			request("DB-KategorieE.html",false); // no id
+			request("DB-KategorieP.html",false); // no id
 		}
 	}
 </script>
@@ -171,44 +172,42 @@
 							
 							
 							
-						<jsp:useBean id="liste" class="beans.Einkaufsliste" scope="session"/>
-	
-		
-	   <jsp:useBean id="alteEinkaufsliste" class="beans.AlteEinkaufsliste" scope="session"/>
-	   
-	   <c:if test="${(fn:length(liste.allIngr)) > 0}" >
-	   			<jsp:setProperty property="news" name="alteEinkaufsliste" value="${liste.allIngr}"/>
-	   </c:if>
-	
-	
-		<div id="checklist">
-		
-	<c:if test="${(fn:length(alteEinkaufsliste.alteIngr)) > 0}" >	
-		<% int counter=0; %>
-			
-	   			<c:forEach items="${alteEinkaufsliste.alteIngr}" var="el">
-	   			<% if( counter<15){ %>
-	   			<% counter++; %>
-	   			
-	   			<input type="checkbox" ><label ><c:out value="${el}"/></label>  
-	   			
-	   			<% } %>
-	   			
-					
-					
-				
-	   			</c:forEach>
-	   			
-	   			
-		</c:if>
-	
-	</div>
+<jsp:useBean id="alteEinkaufsliste" class="beans.AlteEinkaufsliste" scope="session"/>
+
+     <div id="checklist">
+            <jsp:useBean id="liste" class="beans.Einkaufsliste" scope="session"/>
+
+     <c:if test="${(fn:length(liste.allIngr)) > 0}" >
+
+      </c:if>
+
+    <!-- neue Produkte werden zu der voherigen Einkaufsliste hinzugefügt -->
+               <jsp:setProperty property="newIngr" name="alteEinkaufsliste" value="${liste.allIngr}"/>
+               <jsp:setProperty property="newMenge" name="alteEinkaufsliste" value="${liste.allMenge}"/>
+               <jsp:setProperty property="newEinheit" name="alteEinkaufsliste" value="${liste.allEinheit}"/>
 
 
- </div>
+
+                <!-- Ausgabe der alten Einkaufsliste -->
+                <% int counter=0; %> 
+                   <c:forEach items="${alteEinkaufsliste.result}" var="el">
+                       <% if( counter<17){ %> <!-- nur die ersten 17 Zutaten sollten gezeigt werden, damit die Liste nicht zu voll wird -->
+                           <% counter++; %>
+                           <input type="checkbox" ><label ><c:out value="${el}"/></label> 
+                       <% } %>
+                       <% if( counter==17){ %>
+                           <% counter++; %>
+                           <input type="checkbox" ><label ><c:out value="........"/></label>
+                       <% } %>
+                </c:forEach>
+
+
+
+</div>
+</div>
 					<form>
 							
-  <button id="hinzu" class="btn-hover color-8" formaction="EinkaufslisteAnzeigen.html">Einkaufsliste erstellen</button>
+  <button id="hinzu" class="btn-hover color-8" formaction="Einkaufsliste.jsp">Einkaufsliste erstellen</button>
 
 
 
