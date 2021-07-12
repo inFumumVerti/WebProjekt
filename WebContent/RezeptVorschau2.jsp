@@ -34,7 +34,7 @@ req.onreadystatechange=function (){
 			var my_div = newDiv = null;
 			var newDiv = document.createElement("div"); // f√ºr jeden Rezept wird ein neues Kontainer erstellt und mit den Daten aus der Datenbank bef√ºllt
 
-	        newDiv.innerHTML = '<div id="rezeptBlock" class="rezepte"> <form action="IngredientsCalc" method="get">	<table border="1" ><tr><td id="rezeptName" style="font-size: 30px; font-family: Sans-Serif;" colspan="3"></td></tr><tr> <td id="tdRezept" width="450px" >'+rezepte[n]+'</td>		<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td>	<td  align="center" width="100px" > Bild</td></tr><tr><td id="instruction" colspan="3"></td></tr></table> </form>';
+	        newDiv.innerHTML = '<div id="rezeptBlock" class="rezepte"> <form action="IngredientsCalc" method="get"><input type="hidden" name="calc" value="true">	<input type="hidden" name="goTo" value="/RezeptVorschau2.jsp"> <table border="1" ><tr><td id="rezeptName" style="font-size: 30px; font-family: Sans-Serif;" colspan="3"></td></tr><tr> <td id="tdRezept" width="450px" >'+rezepte[n]+'</td>		<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td>	<td  align="center" width="100px" > Bild</td></tr><tr><td id="instruction" colspan="3"></td></tr></table> </form>';
 
 			my_div = document.getElementById("out");
 	    	my_div.appendChild(newDiv);
@@ -130,7 +130,15 @@ req.send();
 
 	<main>
 	
-	<input type="hidden" id="thisRecipe" value="${param.list}" >
+	 <form action="IngredientsCalc" method="get">	
+<input type="hidden" name="calc" value="false">
+<input type="hidden" name="goTo" value="/Z30.06.jsp">
+<input type="submit" value="Zur¸ck">
+</form>
+	
+	
+	<jsp:useBean id="rezept" class="beans.RezeptVorschau" scope="application"/> <!-- ƒndern zur "session" -->
+ 	<input type="hidden" id="thisRecipe" value="${rezept.rezeptID}" >
 	<table >
 		<tr><td></td><td><img id="bild" src="https://image.flaticon.com/icons/png/128/590/590510.png" alt="Einkaufsliste" width="40px" height="40px"></td></tr>
 <tr>
@@ -144,25 +152,17 @@ req.send();
 
 <!-- Einkaufsliste -->
 <div id="innereinkauf" >
-	<jsp:useBean id="alteEinkaufsliste" class="beans.AlteEinkaufsliste" scope="session"/> <!-- ƒndern zur "session" -->
-	   
-	 <div id="checklist">
-			<jsp:useBean id="liste" class="beans.Einkaufsliste" scope="session"/> <!-- ƒndern zur "session" -->
-	   
-	 <c:if test="${(fn:length(liste.allIngr)) > 0}" >
-	 		
-  	</c:if>
-	
-	<!-- neue Produkte werden zu der voherigen Einkaufsliste hinzugef¸gt -->
-	   		<jsp:setProperty property="newIngr" name="alteEinkaufsliste" value="${liste.allIngr}"/>
-   			<jsp:setProperty property="newMenge" name="alteEinkaufsliste" value="${liste.allMenge}"/>
-   			<jsp:setProperty property="newEinheit" name="alteEinkaufsliste" value="${liste.allEinheit}"/>
-	   			
-				
-				
+
+		 <div id="checklist">
+			<jsp:useBean id="liste" class="beans.Einkaufsliste" scope="application"/> <!-- ƒndern zur "session" -->
+
+
+	   		
+	   		
+		
 				<!-- Ausgabe der alten Einkaufsliste -->
 				<% int counter=0; %> 
-	   			<c:forEach items="${alteEinkaufsliste.result}" var="el">
+	   			<c:forEach items="${liste.result}" var="el">
 	   				<% if( counter<17){ %> <!-- nur die ersten 17 Zutaten sollten gezeigt werden, damit die Liste nicht zu voll wird -->
 	   					<% counter++; %>	   			
 	   					<input type="checkbox" ><label ><c:out value="${el}"/></label> 
@@ -172,7 +172,7 @@ req.send();
 	   					<input type="checkbox" ><label ><c:out value="........"/></label>  
 	   				<% } %> 	
 				</c:forEach>
-	   			
+			
 </div>
 
 

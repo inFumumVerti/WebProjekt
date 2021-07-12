@@ -51,31 +51,30 @@
 			alt="Einkaufsliste">
 			
 <div id="innereinkauf">
-			<jsp:useBean id="alteEinkaufsliste" class="beans.AlteEinkaufsliste" scope="session"/> <!-- Ändern zur "session" -->
-	   
+			
 	 <div id="checklist">
 			<jsp:useBean id="liste" class="beans.Einkaufsliste" scope="session"/> <!-- Ändern zur "session" -->
 	   
-	 <c:if test="${(fn:length(liste.allIngr)) > 0}" >
-	 		
-  	</c:if>
+	
+
 	
 	<!-- neue Produkte werden zu der voherigen Einkaufsliste hinzugefügt -->
 	   		
 				
 				<!-- Ausgabe der alten Einkaufsliste -->
-				 <c:if test="${(fn:length(alteEinkaufsliste.result)) > 0}" >
-	 				<c:forEach items="${alteEinkaufsliste.result}" var="el">
+					
+			<c:if test="${(fn:length(liste.result)) > 0 }" >
+			
+	 				<c:forEach items="${liste.result}" var="el">
 	   				   			
 	   					<label ><c:out value="${el}"/></label> <br>
 	   			
 				</c:forEach>
-  				</c:if>
-	   			<c:if test="${(fn:length(alteEinkaufsliste.result)) < 1}" >
+  			</c:if>
+	   			<c:if test="${(fn:length(liste.result)) < 1}" >
 	   			<label >Ihre Liste ist noch leer</label> <br>
 				</c:if>
-				
-	   			
+	
 </div>
 		</div>
 	</div>

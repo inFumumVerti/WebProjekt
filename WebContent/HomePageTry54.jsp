@@ -24,7 +24,7 @@
 	
 					var searchId = '.'; // Gesuchte ID-Rezept
 					str = '\u003ctable[^\0@]*@*' + searchId
-							+ '[^\0i]*[^@]*\u002ftable\u003e'; // regex für ID-Rezept
+							+ '[^\0i]*[^@]*\u002ftable\u003e'; // regex fÃ¼r ID-Rezept
 					var reg = new RegExp(str, 'g');
 					rezepte = oreq.responseText.match(reg); // suche naach dem ID-Rezept
 	
@@ -49,7 +49,7 @@
 						var path = '${pageContext.request.contextPath}/images/' + rezeptID + '.jpg';
 						var bild = '<td align="center" width="300"><image width="300px" height="300px" src ="' + path +'"></td>';
 						
-						newDiv.innerHTML = '<form action="IngredientsCalc" method="get"> <table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td>' + bild + tempstring + '<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
+						newDiv.innerHTML = '<form action="IngredientsCalc" method="get"> <input type="hidden" name="calc" value="true"><input type="hidden" name="goTo" value="/Z30.06.jsp"><table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td>' + bild + tempstring + '<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
 						
 						var beschreibung = document.getElementsByClassName("be"); // Rezeptzubereitung ausblenden
 	
@@ -65,14 +65,36 @@
 						var zutatenServlet = document.getElementsByClassName("ser"); // Zutaten fÃ¼r Servlet-Bearbeitung ausblenden
 						for (i = 0; i < zutatenServlet.length; i++) {
 							zutatenServlet[i].innerHTML ="" ;
+							
+							
+							
+							  for(n=0;n<rezepte.length; n++){ // es kÃ¶nnen mehrere Rezepte der Suche entsprechen
+									var my_div = newDiv = null;
+									var pp = document.getElementById("pp");
+									
+									
+
+									  pp.innerHTML = '<form action="IngredientsCalc" method="get"><button type="button" onclick="buttonprevious()">Previous</button><input type="hidden" name="goTo" value="/HomePageTry54.jsp"> <input type="hidden" name="calc" value="true">	<table border="1"  ><tr> <td  align="center" width="100px" > Bild</td><td id="tdRezept" width="450px" >'+rezepte[n]+'</td>		<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td>	</tr></table></form>';
+									  
+
+
+							    	
+							    	
+									
+									}
+									
+							
+							
 						}
 					} else { // wenn keine ID-Rezept vorhanden ist....
 						var my_div = newDiv = null;
 						var newDiv = document.getElementById("rezeptBlock");
 						newDiv.innerHTML = '<button type="button" onclick="buttonprevious()">Previous</button>:(<button type="button" onclick="buttonnext()">Next</button>';
 					}
-					newDiv.innerHTML = '<table ><tr><td><div id="rezeptBlock" class="rezepte"> <form action="IngredientsCalc" method="get">    <table border="1"  ><tr> <td  align="center" width="100px" > Bild</td><td id="tdRezept" width="450px" >'+rezepte[n]+'</td>        <td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td>    </tr></table></form></div></td><td ><div class="vorschau" style="height:100%;" ></div></td></tr><table>';
-	
+					
+					
+					
+					
 				}
 				if (oreq.status == 404) {
 					console.log('File or resource not found');
@@ -102,7 +124,7 @@
 			request("DB-KategorieP.html",false);
 		}
 		else if (counter == 3){
-			counter = 0;
+			counter = 0
 			request("DB-KategorieP.html",false);
 		}
 	}
@@ -165,55 +187,65 @@
 			<td width="600" valign="top">
 				<div class="scrollPage" id="out"></div>
 			</td></tr></table></td>
-				<td width="30%"><div id="innereinkauf">
+				<td width="30%"><div id="innereinkauf">	
+				
 						<img id="bild"
 							src="https://image.flaticon.com/icons/png/128/590/590510.png"
 							alt="Einkaufsliste" width="40px" height="40px">
+						
 							
-							
-							
-<jsp:useBean id="alteEinkaufsliste" class="beans.AlteEinkaufsliste" scope="session"/>
-
-     <div id="checklist">
-            <jsp:useBean id="liste" class="beans.Einkaufsliste" scope="session"/>
-
-     <c:if test="${(fn:length(liste.allIngr)) > 0}" >
-
-      </c:if>
-
-    <!-- neue Produkte werden zu der voherigen Einkaufsliste hinzugefügt -->
-               <jsp:setProperty property="newIngr" name="alteEinkaufsliste" value="${liste.allIngr}"/>
-               <jsp:setProperty property="newMenge" name="alteEinkaufsliste" value="${liste.allMenge}"/>
-               <jsp:setProperty property="newEinheit" name="alteEinkaufsliste" value="${liste.allEinheit}"/>
+						<!-- Einkaufsliste -->
 
 
-
-                <!-- Ausgabe der alten Einkaufsliste -->
-                <% int counter=0; %> 
-                   <c:forEach items="${alteEinkaufsliste.result}" var="el">
-                       <% if( counter<17){ %> <!-- nur die ersten 17 Zutaten sollten gezeigt werden, damit die Liste nicht zu voll wird -->
-                           <% counter++; %>
-                           <input type="checkbox" ><label ><c:out value="${el}"/></label> 
-                       <% } %>
-                       <% if( counter==17){ %>
-                           <% counter++; %>
-                           <input type="checkbox" ><label ><c:out value="........"/></label>
-                       <% } %>
-                </c:forEach>
-
-
-
+	   
+	 <div id="checklist">
+			<jsp:useBean id="liste" class="beans.Einkaufsliste" scope="application"/> <!-- Ändern zur "session" -->
+	 
+		
+				<!-- Ausgabe der alten Einkaufsliste -->
+				<% int counter=0; %> 
+	   			<c:forEach items="${liste.result}" var="el">
+	   				<% if( counter<17){ %> <!-- nur die ersten 17 Zutaten sollten gezeigt werden, damit die Liste nicht zu voll wird -->
+	   					<% counter++; %>	   			
+	   					<input type="checkbox" ><label ><c:out value="${el}"/></label> 
+	   				<% } %>
+	   				<% if( counter==17){ %>
+	   					<% counter++; %>	   			
+	   					<input type="checkbox" ><label ><c:out value="........"/></label>  
+	   				<% } %> 	
+				</c:forEach>
+			
+				
+	   			
 </div>
+	   			
 </div>
-					<form>
-							
-  <button id="hinzu" class="btn-hover color-8" formaction="Einkaufsliste.jsp">Einkaufsliste erstellen</button>
 
 
 
-						</form></td>
+ 
+
+
+<form action="IngredientsCalc" method="get">	
+<input type="hidden" name="calc" value="false">
+<input type="hidden" name="goTo" value="/Z30.06.jsp">
+<input type="submit" value="Kategorien">
+</form>
+
+
+
+<form action="IngredientsCalc" method="get">	
+<input type="hidden" name="calc" value="false">
+<input type="hidden" name="goTo" value="/Einkaufsliste.jsp">
+<input id="hinzu" class="btn-hover color-8" type="submit" value="Einkaufsliste">
+</form>
+</td>
 			</tr>
+			
+			
 		</table>
+		
+		<div id="pp"></div>
 	</main>
 </body>
 </html>

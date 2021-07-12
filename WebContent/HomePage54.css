@@ -1,7 +1,6 @@
 @charset "ISO-8859-1";
 
 header {
-	border: 1px solid red;
 	height: 100px;
 }
 body{
@@ -19,7 +18,7 @@ h2{
 }
 
 .btn-hover {
-	width: 129px;
+	width: 115px;
 	font-size: 16px;
 	font-weight: 600;
 	color: #fff;
@@ -57,7 +56,6 @@ h2{
     box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
 main {
-	border: 1px solid blue;
 	height: 600px;
 }
 
@@ -129,7 +127,7 @@ main {
 #search {
 	margin:auto;
 	float: left;
-	width: 200px;
+	width: 150px;
 }
 
 #bild {
@@ -140,14 +138,9 @@ main {
 
 #innereinkauf {
 	width: 450px;
-	height: 350px;
+	height: 300px;
 	margin: 9px;
 	padding: 15px;
-	border-style: solid;
-	border-width: 3px;
-	border-image: linear-gradient(to right, #11998e, #38ef7d);
-	border-image-slice: 1;
-	
 }
 
 #hinzu {
@@ -163,4 +156,18 @@ main {
 }
 .ee{
 	font-size:x-large;
+}
+
+body{
+	background-color: black;
+	color: black;
+}
+#seitemitfeite{
+	background-color: #bbbfbc;
+}
+
+#collapsee{
+	position: fixed;
+	padding-left: 20px;
+	padding-top: 5px;
 }

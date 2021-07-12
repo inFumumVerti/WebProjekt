@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import beans.AlteEinkaufsliste;
 import beans.Calculator;
 import beans.Einkaufsliste;
+import beans.RezeptVorschau;
 
 /**
  * Servlet implementation class DoCalculation
@@ -18,38 +19,54 @@ import beans.Einkaufsliste;
 @WebServlet("/IngredientsCalc")
 public class IngredientsCalc extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
-
+    Einkaufsliste liste= new Einkaufsliste();
+    RezeptVorschau rezept=new RezeptVorschau();
+    
+    
 
     private void doGetOrPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
-
-
-        Einkaufsliste liste= new Einkaufsliste();
-
-
+        request.setAttribute("rezept", rezept);
         request.setAttribute("liste", liste);
+        
+    
+        
+        String goTo=request.getParameter("goTo");
 
+        
+        if(request.getParameter("calc").equals("true")) {
+            liste.setNewIngr(request.getParameterValues("newIngr"));
+            liste.setNewMenge(request.getParameterValues("newMenge"));
+            liste.setNewEinheit(request.getParameterValues("newEinheit"));}
+            
+        
+        
+        else if(goTo.equals("/RezeptVorschau2.jsp")) {
+                
+            rezept.setRezeptID(request.getParameter("vorschau"));
+            }
+        
 
-        // Parameter einlesen
-        liste.setAllNew(request.getParameterValues("newIngr"), request.getParameterValues("newMenge"),request.getParameterValues("newEinheit"));
-
-        request.getServletContext().getRequestDispatcher("/Z30.06.jsp").forward(request, response);
-
+        
+        
+        liste.setNewResult(); 
+        
+        request.getServletContext().getRequestDispatcher(goTo).forward(request, response);
+        
     }
+            
+    
 
 
+        
 
-
-
-
-
+    
 
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         doGetOrPost(request, response);
     }
-
+    
 
 
     protected void doPost(HttpServletRequest request,
