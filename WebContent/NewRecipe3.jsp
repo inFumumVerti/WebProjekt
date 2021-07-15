@@ -18,7 +18,7 @@
 				class="form__label">Name des Gerichts</label>
 		</div>
 		<br>
-		<input type="file" id="img" name="img" accept="image/jpg">
+
 		<div class="form__group field">
 
 			<input type="text" class="form__field" placeholder="Dauer"
@@ -60,7 +60,9 @@
 		</div>	
 		<table>
 		<tr>
-			<td><button type="button" id="DeleteZutat" class="btn-hover color-1">Zutat löschen</button></td>
+			<td>
+			<button type="button" id="DeleteZutat" class="btn-hover color-1">Zutat
+				löschen</button></td>
 			<td><button type="button" id="AddZutat" class="btn-hover color-1">+Zutat</button></td>
 		</tr>
 		</table>		
@@ -68,14 +70,10 @@
 		<h1>Beschreibung</h1>
 		<textarea rows="30" cols="100" name="Beschreibung" placeholder="Deine Beschreibung..."></textarea>
 		<br>
-		<button onclick="submitclick()" id="subm" class="btn-hover color-1">Bestätigen</button>
-		
-		<script type="text/javascript">
-			function submitclick(){
-				
-			}
-		</script>
+		<button type="submit" id="subm" class="btn-hover color-1">Bestätigen</button>
 
+
+Web Application Context Path = ${pageContext.request.contextPath}/WebContent/DB-KategorieZ.html;
 </form>
 </body>
 </html>

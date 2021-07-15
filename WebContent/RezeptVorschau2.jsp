@@ -137,7 +137,7 @@ req.send();
 </form>
 	
 	
-	<jsp:useBean id="rezept" class="beans.RezeptVorschau" scope="application"/> <!-- Ändern zur "session" -->
+	<jsp:useBean id="rezept" class="beans.RezeptVorschau" scope="session"/> <!-- Ändern zur "session" -->
  	<input type="hidden" id="thisRecipe" value="${rezept.rezeptID}" >
 	<table >
 		<tr><td></td><td><img id="bild" src="https://image.flaticon.com/icons/png/128/590/590510.png" alt="Einkaufsliste" width="40px" height="40px"></td></tr>
@@ -152,7 +152,13 @@ req.send();
 
 <!-- Einkaufsliste -->
 <div id="innereinkauf" >
-
+<div align="right">
+	    <form action="IngredientsCalc" method="get">	
+<input type="hidden" name="calc" value="deleteAll">
+<input type="hidden" name="goTo" value="/Z30.06.jsp">
+ <input type="submit" value="Alles löschen">
+ </form>  
+ </div>
 		 <div id="checklist">
 			<jsp:useBean id="liste" class="beans.Einkaufsliste" scope="application"/> <!-- Ändern zur "session" -->
 

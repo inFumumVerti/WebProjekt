@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Impressum</title>
+<link rel="stylesheet" type="text/css" href="Impressum.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<header>
+		<form>
+			<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+				<div class="container-fluid">
+					<button class="navbar-toggler" type="button"
+						data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item"><a class="nav-link active"
+								aria-current="page"><button class="btn-hover color-8">Fleisch</button></a>
+							</li>
+							<li class="nav-item"><a class="nav-link"><button
+										class="btn-hover color-8">Vegetarisch</button></a></li>
+							<li class="nav-item"><a class="nav-link"><button
+										class="btn-hover color-8">Vegan</button></a></li>
+							<li class="nav-item"><a class="nav-link"><button
+										class="btn-hover color-8">Nudeln</button></a></li>
+							<li class="nav-item"><a class="nav-link"><button
+										class="btn-hover color-8">Reis</button></a></li>
+							<li class="nav-item"><a class="nav-link"><button
+										id="rezept-button" class="btn-hover color-8"
+										formaction="NewRecipe3.jsp">+Rezept</button></a></li>
+						</ul>
+						<div>
+							<input type="text" class="form__field" placeholder="Search"
+								name="search" id='search'> <label for="search"
+								class="form__label">Search...</label>
+						</div>
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					</div>
+				</div>
+			</nav>
+		</form>
+	</header>
+	<br>
+
+	<p>
+		Wilkommen zur Rezept/Einkaufapp!<br> In dieser App wollen wir es
+		Ihnen einfacher machen, neue, interessante Rezepte zu entdecken und
+		diese direkt in eine eingebaute Einkaufsliste zu importieren, sodass
+		Sie sich um nichts kümmern müssen. Wie funktioniert das? Im Folgenden
+		ist die Funktion der App beschrieben, sodass Sie direkt loslegen
+		können!
+	</p>
+	<p><h1>Homepage</h1><br>
+	Oben auf unserer Seite finden Sie eine Navigationsleiste. Hier können sie zwischen 
+	den einzelnen Rezeptkategorien wechseln, um ihren Geschmack zu treffen.<br>
+	Rechts neben den Kategorien finden sie ein freies Suchfeld, um spezifisch nach Rezepten
+	zu suchen.<br>
+	Unter der Navigationsleiste befindet sich ein zufälliges spannendes Rezept aus je einer Kategorie.<br>
+	Daneben befindet sich die Einkaufsliste, die Sie auf der gesamten Website begleiten wird. Hier werden alle
+	Zutaten angezeigt, die Sie für die Rezepte zum Nachkochen benötigen</p>
+	<p><h1>Kategorie</h1><br>
+	Hier finden Sie Rezepte aus einer Kategorie, welche Sie ausgewählt haben. Durch den " + " Button können Sie die
+	Zutaten des gewünschten Rezeptes zu ihrer Einkaufsliste hinzufügen. Sie finden auf der Rezeptevorschau immer ein
+	Bild, den Namen, die Zubereitungsdauer uvm. </p>
+	<p><h1>Rezept hinzufügen</h1><br>
+	Es ist einfach ein neues Rezept auf unserer Seite hinzuzufügen. Klicken Sie einfach auf "+Rezept" in der 
+	Navigationsleiste. Auf der nachfolgenden Seite müssen Sie lediglich alle Informationen (Name, Zutaten, Menge, Beschreibung...)
+	hinzufügen und schon ist ihr neues Rezept angelegt.</p>
+	<p><h1>Rezept anzeigen</h1><br>
+	Um ein Rezept vollkommen anzeigen zu lassen müssen Sie auf den Pfeil neben dem Rezept klicken und erhalten dann die vollen 
+	Informationen zu dem Rezept.</p>
+	<p><h1>Einkaufsliste erstellen</h1><br>
+	Wenn Sie unter der Einkaufsliste auf Einkaufsliste anzeigen klicken, dann sehen Sie alle Zutaten, die Sie bisher in ihrer Einkaufsliste
+	haben. Mit einem Klick auf eine Zutat wird diese Zutat gelöscht.</p>
+</body>
+</html>

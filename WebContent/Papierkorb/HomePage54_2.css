@@ -1,7 +1,6 @@
 @charset "ISO-8859-1";
 
 header {
-	border: 1px solid red;
 	height: 100px;
 }
 body{
@@ -19,7 +18,7 @@ h2{
 }
 
 .btn-hover {
-	width: 129px;
+	width: 115px;
 	font-size: 16px;
 	font-weight: 600;
 	color: #fff;
@@ -57,7 +56,6 @@ h2{
     box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
 main {
-	border: 1px solid blue;
 	height: 600px;
 }
 
@@ -129,7 +127,7 @@ main {
 #search {
 	margin:auto;
 	float: left;
-	width: 200px;
+	width: 150px;
 }
 
 #bild {
@@ -139,18 +137,10 @@ main {
 }
 
 #innereinkauf {
-	margin-right: 70px;
-	width: 300px;
-	height: 330px;
-	margin-left: 70px;
-	
+	width: 450px;
+	height: 300px;
+	margin: 9px;
 	padding: 15px;
-	border-style: solid;
-	border-width: 3px;
-	border-image: linear-gradient(to right, #11998e, #38ef7d);
-	border-image-slice: 1;
-	background-color:#797c82;
-	
 }
 
 #hinzu {
@@ -168,37 +158,16 @@ main {
 	font-size:x-large;
 }
 
-
-    
-    
-    
-  #checklist {
-	 --background: #797c82;
-	 --text: #222;
-	 --check: #4f29f0;
-	 --disabled: #c3c8de;
-	 
-	 	 --border-radius: 10px;
-	 background: var(--background);
-	 
-	 border-radius: var(--border-radius);
-	 
-	
-	 
-	
-	 display: grid;
-	 grid-template-columns: 30px auto;
-	 align-items: center;
-	 
-	
+body{
+	background-color: black;
+	color: black;
 }
- #checklist label {
-	 color: var(--text);
-	 
-	 cursor: pointer;
-	 display: grid;
-	 align-items: center;
-	
-	 transition: color 0.3s ease;
-}  
-    
+#seitemitfeite{
+	background-color: #bbbfbc;
+}
+
+#collapsee{
+	position: fixed;
+	padding-left: 20px;
+	padding-top: 5px;
+}

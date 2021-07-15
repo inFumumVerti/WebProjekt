@@ -196,7 +196,13 @@
 							
 						<!-- Einkaufsliste -->
 
-
+<div align="right">
+	    <form action="IngredientsCalc" method="get">	
+<input type="hidden" name="calc" value="deleteAll">
+<input type="hidden" name="goTo" value="/Z30.06.jsp">
+ <input type="submit" value="Alles löschen">
+ </form>  
+ </div>
 	   
 	 <div id="checklist">
 			<jsp:useBean id="liste" class="beans.Einkaufsliste" scope="application"/> <!-- Ändern zur "session" -->
@@ -224,7 +230,11 @@
 
 
  
-
+<form action="IngredientsCalc" method="get">	
+<input type="hidden" name="calc" value="false">
+<input type="hidden" name="goTo" value="/Einkaufsliste.jsp">
+<input type="submit" value="Einkaufsliste">
+</form>
 
 <form action="IngredientsCalc" method="get">	
 <input type="hidden" name="calc" value="false">
@@ -233,13 +243,13 @@
 </form>
 
 
+					<form>
+							
+  <button id="hinzu" class="btn-hover color-8" formaction="Einkaufsliste.jsp">Einkaufsliste erstellen</button>
 
-<form action="IngredientsCalc" method="get">	
-<input type="hidden" name="calc" value="false">
-<input type="hidden" name="goTo" value="/Einkaufsliste.jsp">
-<input id="hinzu" class="btn-hover color-8" type="submit" value="Einkaufsliste">
-</form>
-</td>
+
+
+						</form></td>
 			</tr>
 			
 			

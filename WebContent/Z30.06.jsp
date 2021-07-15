@@ -144,10 +144,16 @@ req.send();
 </td>
 
 <td width="200" valign="top" align="left"><div id="einkaufdiv">
-
-
+	
 <!-- Einkaufsliste -->
 <div id="innereinkauf" >
+<div align="right">
+	    <form action="IngredientsCalc" method="get">	
+<input type="hidden" name="calc" value="deleteAll">
+<input type="hidden" name="goTo" value="/Z30.06.jsp">
+ <input type="submit" value="Alles löschen">
+ </form>  
+ </div>
 	   
 	 <div id="checklist">
 			<jsp:useBean id="liste" class="beans.Einkaufsliste" scope="session"/> <!-- Ändern zur "session" -->
@@ -169,7 +175,7 @@ req.send();
 				</c:forEach>
 			
 		
-	   			
+ 			
 </div>
 
 
