@@ -18,60 +18,79 @@ import beans.RezeptVorschau;
  */
 @WebServlet("/IngredientsCalc")
 public class IngredientsCalc extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    Einkaufsliste liste= new Einkaufsliste();
-    RezeptVorschau rezept=new RezeptVorschau();
-    
-    
+	private static final long serialVersionUID = 1L;
+	Einkaufsliste liste= new Einkaufsliste();
+	RezeptVorschau rezept=new RezeptVorschau();
+	
+	
 
-    private void doGetOrPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("rezept", rezept);
-        request.setAttribute("liste", liste);
-        
-    
-        
-        String goTo=request.getParameter("goTo");
+	private void doGetOrPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("rezept", rezept);
+		request.setAttribute("liste", liste);
+		
+	
+		
+		String goTo=request.getParameter("goTo");
 
-        
-        if(request.getParameter("calc").equals("true")) {
-            liste.setNewIngr(request.getParameterValues("newIngr"));
-            liste.setNewMenge(request.getParameterValues("newMenge"));
-            liste.setNewEinheit(request.getParameterValues("newEinheit"));}
-            
-        
-        
-        else if(goTo.equals("/RezeptVorschau2.jsp")) {
-                
-            rezept.setRezeptID(request.getParameter("vorschau"));
-            }
-        
+		
+		if(request.getParameter("calc").equals("true")) {
+			liste.setNewIngr(request.getParameterValues("newIngr"));
+			liste.setNewMenge(request.getParameterValues("newMenge"));
+			liste.setNewEinheit(request.getParameterValues("newEinheit"));}
+			
+		else if(request.getParameter("calc").equals("change")) {
+			if(request.getParameterMap().containsKey("alteIngr")) {
+			liste.setLeerResult();
+			liste.setAlteIngr(request.getParameterValues("alteIngr"));
+			liste.setAlteMenge(request.getParameterValues("alteMenge"));
+			liste.setAlteEinheit(request.getParameterValues("alteEinheit"));}
+			
+			if(request.getParameterMap().containsKey("newIngr")) {
+				liste.setNewIngr(request.getParameterValues("newIngr"));
+				liste.setNewMenge(request.getParameterValues("newMenge"));
+				liste.setNewEinheit(request.getParameterValues("newEinheit"));}
+			
+			}
+		else if(request.getParameter("calc").equals("deleteAll")) {
+			
+			 liste.setLeerResult();
+			 liste = new Einkaufsliste();
+			
+		
+			}
+		
+		else if(goTo.equals("/RezeptVorschau2.jsp")) {
+				
+			rezept.setRezeptID(request.getParameter("vorschau"));
+			}
+		
 
-        
-        
-        liste.setNewResult(); 
-        
-        request.getServletContext().getRequestDispatcher(goTo).forward(request, response);
-        
-    }
-            
-    
+		
+		
+		liste.setNewResult(); 
+		
+		request.getServletContext().getRequestDispatcher(goTo).forward(request, response);
+		
+	}
+			
+	
 
 
-        
+		
 
-    
+	
 
-    protected void doGet(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
-        doGetOrPost(request, response);
-    }
-    
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		doGetOrPost(request, response);
+	}
+	
 
 
-    protected void doPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
-        doGetOrPost(request, response);
-    }
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		doGetOrPost(request, response);
+	}
 
 }

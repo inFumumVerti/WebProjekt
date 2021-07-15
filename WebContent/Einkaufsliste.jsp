@@ -576,13 +576,13 @@ function elementDelete(){
 	   		
  <form action="IngredientsCalc" method="get">	
 <input type="hidden" name="calc" value="false">
-<input type="hidden" name="goTo" value="/HomePageTry54.jsp">
+<input type="hidden" name="goTo" value="/HomePage.jsp">
 <input type="submit" value="Home">
 </form>
 		
 	 <form action="IngredientsCalc" method="get">	
 <input type="hidden" name="calc" value="false">
-<input type="hidden" name="goTo" value="/Z30.06.jsp">
+<input type="hidden" name="goTo" value="/Kategorien.jsp">
 <input type="submit" value="Kategorien">
 </form>	 			
 	 				

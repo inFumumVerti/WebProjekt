@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 
 <title>Kategorien</title>
-<link rel="stylesheet" type="text/css" href="Z55.css">
+<link rel="stylesheet" type="text/css" href="Kategorien.css">
 </head>
 <body>
 <script type="text/javascript">
@@ -88,7 +88,7 @@ req.onreadystatechange=function (){
 
 
 
-req.open('GET', 'DB-KategorieP.html', true);
+req.open('GET', 'DB/DB-KategorieP.html', true);
 
 
 
@@ -132,7 +132,7 @@ req.send();
 	
 	 <form action="IngredientsCalc" method="get">	
 <input type="hidden" name="calc" value="false">
-<input type="hidden" name="goTo" value="/Z30.06.jsp">
+<input type="hidden" name="goTo" value="/Kategorien.jsp">
 <input type="submit" value="Zurück">
 </form>
 	
@@ -155,7 +155,7 @@ req.send();
 <div align="right">
 	    <form action="IngredientsCalc" method="get">	
 <input type="hidden" name="calc" value="deleteAll">
-<input type="hidden" name="goTo" value="/Z30.06.jsp">
+<input type="hidden" name="goTo" value="/Kategorien.jsp">
  <input type="submit" value="Alles löschen">
  </form>  
  </div>

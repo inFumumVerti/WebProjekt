@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 
 <title>Kategorien</title>
-<link rel="stylesheet" type="text/css" href="Z55.css">
+<link rel="stylesheet" type="text/css" href="Kategorien.css">
 </head>
 <body>
 <script type="text/javascript">
@@ -33,7 +33,7 @@ req.onreadystatechange=function (){
 			var my_div = newDiv = null;
 			var newDiv = document.createElement("div"); // für jeden Rezept wird ein neues Kontainer erstellt und mit den Daten aus der Datenbank befüllt
 
-	        newDiv.innerHTML = '<table ><tr><td><div id="rezeptBlock" class="rezepte"> <form action="IngredientsCalc" method="get">	<input type="hidden" name="calc" value="true"><input type="hidden" name="goTo" value="/Z30.06.jsp"> <table border="1"  ><tr> <td  align="center" width="100px" > Bild</td><td id="tdRezept" width="450px" >'+rezepte[n]+'</td>		<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td>	</tr></table></form></div></td><td ><div class="vorschau" style="height:100%;" ></div></td></tr><table>';
+	        newDiv.innerHTML = '<table ><tr><td><div id="rezeptBlock" class="rezepte"> <form action="IngredientsCalc" method="get">	<input type="hidden" name="calc" value="true"><input type="hidden" name="goTo" value="/Kategorien.jsp"> <table border="1"  ><tr> <td  align="center" width="100px" > Bild</td><td id="tdRezept" width="450px" >'+rezepte[n]+'</td>		<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td>	</tr></table></form></div></td><td ><div class="vorschau" style="height:100%;" ></div></td></tr><table>';
   
 	         
 			my_div = document.getElementById("out");
@@ -94,7 +94,7 @@ req.onreadystatechange=function (){
 
 
 
-req.open('GET', 'DB-KategorieP.html', true);
+req.open('GET', 'DB/DB-KategorieP.html', true);
 
 
 
@@ -150,7 +150,7 @@ req.send();
 <div align="right">
 	    <form action="IngredientsCalc" method="get">	
 <input type="hidden" name="calc" value="deleteAll">
-<input type="hidden" name="goTo" value="/Z30.06.jsp">
+<input type="hidden" name="goTo" value="/Kategorien.jsp">
  <input type="submit" value="Alles l�schen">
  </form>  
  </div>
@@ -194,7 +194,7 @@ req.send();
 
  <form action="IngredientsCalc" method="get">	
 <input type="hidden" name="calc" value="false">
-<input type="hidden" name="goTo" value="/HomePageTry54.jsp">
+<input type="hidden" name="goTo" value="/HomePage.jsp">
 <input type="submit" value="Home">
 </form>
 

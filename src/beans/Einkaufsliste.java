@@ -37,9 +37,18 @@ private String[] newEinheit;
 		
 		
 	}
+	
+	
+	public void setAlteMenge(String[] men) {this.alteMenge = men;}
+	public void setAlteIngr(String[] ing) {this.alteIngr = ing;}
+	public void setAlteEinheit(String[] einheit) {this.alteEinheit = einheit;}
+	public void setLeerResult() {result = new String[0];}
+	
 	public void setNewMenge(String[] men) {this.newMenge=men;}
 	public void setNewIngr(String[] ing) {this.newIngr=ing;}
 	public void setNewEinheit(String[] einheit) {this.newEinheit=einheit;}
+	
+	
 	
 	
 	public void setNewResult(){
@@ -141,7 +150,7 @@ private String[] newEinheit;
 					}
 			
 			
-			
+		}
 			//Zusammenfassung 
 			this.result= new String[alteIngr.length];		
 			for (int i=0;i<alteIngr.length;i++) {
@@ -155,7 +164,7 @@ private String[] newEinheit;
 			
 			newIngr = new String[0];
 			newMenge = new String[0];
-			newEinheit = new String[0];}
+			newEinheit = new String[0];
 			
 	}
 
@@ -179,25 +188,6 @@ private String[] newEinheit;
 		return this.newEinheit;
 	}
 	public String[] getAlteIngr() {
-		/*if(this.newIngr.length>0) {
-			String[] zusatz=alteIngr;
-		this.alteIngr=new String[alteIngr.length+newIngr.length];								
-		for (int w=newIngr.length;w<alteIngr.length;w++) {
-				this.alteIngr[w]=zusatz[w-newIngr.length];
-			}	
-		for (int w=0;w<newIngr.length;w++) {
-			this.alteIngr[w]=newIngr[w];
-			
-			
-			
-		}
-		
-		this.newIngr=new String[0];} */
-		
-	
-	
-	
-				
 
 			
 		
@@ -216,3 +206,4 @@ private String[] newEinheit;
 	
 	
 		
+	

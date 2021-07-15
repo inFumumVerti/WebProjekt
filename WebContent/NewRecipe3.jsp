@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="NewRecipe3CSSStyle.css">
+<link rel="stylesheet" type="text/css" href="NewRecipe3.css">
 <meta charset="ISO-8859-1">
 <title>Neues Rezept</title>
 </head>
@@ -73,7 +73,7 @@
 		<button type="submit" id="subm" class="btn-hover color-1">Bestätigen</button>
 
 
-Web Application Context Path = ${pageContext.request.contextPath}/WebContent/DB-KategorieZ.html;
+Web Application Context Path = ${pageContext.request.contextPath}/WebContent/DB/DB-KategorieZ.html;
 </form>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Homepage</title>
 
-<link rel="stylesheet" type="text/css" href="HomePage54.css">
+<link rel="stylesheet" type="text/css" href="HomePage.css">
 <script src="jquery-3.6.0.js"></script>
 
 </head>
@@ -49,7 +49,7 @@
 						var path = '${pageContext.request.contextPath}/images/' + rezeptID + '.jpg';
 						var bild = '<td align="center" width="300"><image width="300px" height="300px" src ="' + path +'"></td>';
 						
-						newDiv.innerHTML = '<form action="IngredientsCalc" method="get"> <input type="hidden" name="calc" value="true"><input type="hidden" name="goTo" value="/Z30.06.jsp"><table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td>' + bild + tempstring + '<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
+						newDiv.innerHTML = '<form action="IngredientsCalc" method="get"> <input type="hidden" name="calc" value="true"><input type="hidden" name="goTo" value="/Kategorien.jsp"><table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td>' + bild + tempstring + '<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
 						
 						var beschreibung = document.getElementsByClassName("be"); // Rezeptzubereitung ausblenden
 	
@@ -74,7 +74,7 @@
 									
 									
 
-									  pp.innerHTML = '<form action="IngredientsCalc" method="get"><button type="button" onclick="buttonprevious()">Previous</button><input type="hidden" name="goTo" value="/HomePageTry54.jsp"> <input type="hidden" name="calc" value="true">	<table border="1"  ><tr> <td  align="center" width="100px" > Bild</td><td id="tdRezept" width="450px" >'+rezepte[n]+'</td>		<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td>	</tr></table></form>';
+									  pp.innerHTML = '<form action="IngredientsCalc" method="get"><button type="button" onclick="buttonprevious()">Previous</button><input type="hidden" name="goTo" value="/HomePage.jsp"> <input type="hidden" name="calc" value="true">	<table border="1"  ><tr> <td  align="center" width="100px" > Bild</td><td id="tdRezept" width="450px" >'+rezepte[n]+'</td>		<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td>	</tr></table></form>';
 									  
 
 
@@ -107,43 +107,43 @@
 	}
 	$(document).ready(function() {
 		counter = 0;
-		request("DB-KategorieP.html",true);
+		request("DB/DB-KategorieP.html",true);
 		$('#rezeptBlock').css( "border", "3px solid pink" );
 	});
 	function buttonnext(){
 		if (counter == 0){
 			counter++;
-			request("DB-KategorieP.html",false);
+			request("DB/DB-KategorieP.html",false);
 		}
 		else if (counter == 1){
 			counter++;
-			request("DB-KategorieP.html",false); //no id
+			request("DB/DB-KategorieP.html",false); //no id
 		}
 		else if (counter == 2){
 			counter++;
-			request("DB-KategorieP.html",false);
+			request("DB/DB-KategorieP.html",false);
 		}
 		else if (counter == 3){
 			counter = 0
-			request("DB-KategorieP.html",false);
+			request("DB/DB-KategorieP.html",false);
 		}
 	}
 	function buttonprevious(){
 		if (counter == 0){
 			counter = 3;
-			request("DB-KategorieP.html",false);
+			request("DB/DB-KategorieP.html",false);
 		}
 		else if (counter == 1){
 			counter--;
-			request("DB-KategorieP.html",false);
+			request("DB/DB-KategorieP.html",false);
 		}
 		else if (counter == 2){
 			counter--;
-			request("DB-KategorieP.html",false);
+			request("DB/DB-KategorieP.html",false);
 		}
 		else if (counter == 3){
 			counter--;
-			request("DB-KategorieP.html",false); // no id
+			request("DB/DB-KategorieP.html",false); // no id
 		}
 	}
 </script>
@@ -199,7 +199,7 @@
 <div align="right">
 	    <form action="IngredientsCalc" method="get">	
 <input type="hidden" name="calc" value="deleteAll">
-<input type="hidden" name="goTo" value="/Z30.06.jsp">
+<input type="hidden" name="goTo" value="/HomePage.jsp">
  <input type="submit" value="Alles löschen">
  </form>  
  </div>
@@ -238,7 +238,7 @@
 
 <form action="IngredientsCalc" method="get">	
 <input type="hidden" name="calc" value="false">
-<input type="hidden" name="goTo" value="/Z30.06.jsp">
+<input type="hidden" name="goTo" value="/Kategorien.jsp">
 <input type="submit" value="Kategorien">
 </form>
 
