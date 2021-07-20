@@ -43,13 +43,13 @@
 							my_div.appendChild(newDiv);
 						}
 						
-						tempstring = '<td id="tdRezept" >'+ rezepte[random] + '</td>';
-						var rezeptID = $('#tdRezept','<div><table>'+ tempstring +'</table></div>').children().attr('id'); //get id of table in Kategorie
-						console.log(rezeptID);
-						var path = '${pageContext.request.contextPath}/images/' + rezeptID + '.jpg';
-						var bild = '<td align="center" width="300"><image width="300px" height="300px" src ="' + path +'"></td>';
+						//tempstring = '<td id="tdRezept" >'+ rezepte[random] + '</td>';
+						//var rezeptID = $('#tdRezept','<div><table>'+ tempstring +'</table></div>').children().attr('id'); //get id of table in Kategorie
+						//console.log(rezeptID);
+						//var path = '${pageContext.request.contextPath}/images/' + rezeptID + '.jpg';
+						//var bild = '<td align="center" width="300"><image width="300px" height="300px" src ="' + path +'"></td>';
 						
-						newDiv.innerHTML = '<form action="IngredientsCalc" method="get"> <input type="hidden" name="calc" value="true"><input type="hidden" name="goTo" value="/Kategorien.jsp"><table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td>' + bild + tempstring + '<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
+						newDiv.innerHTML = '<form action="IngredientsCalc" method="get"> <input type="hidden" name="calc" value="true"><input type="hidden" name="goTo" value="/Kategorien.jsp"><table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td><td id="tdRezept" >'+ rezepte[random] + '</td><td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
 						
 						var beschreibung = document.getElementsByClassName("be"); // Rezeptzubereitung ausblenden
 	
