@@ -46,7 +46,6 @@
 						tempstring = '<td id="tdRezept" >'+ rezepte[random] + '</td>';
 						var imageloc = $('#tdRezept','<div><table>'+ tempstring +'</table></div>').children().children().children().children().toArray(); //get id of table in Kategorie
 						var imagetd = imageloc[1];
-						console.log(imagetd);
 						var path = $('img', imagetd)[0].currentSrc;
 						var bild = '<td align="center" width="300"><image width="300px" height="300px" src ="' + path +'"></td>';
 						newDiv.innerHTML = '<form action="IngredientsCalc" method="get"> <input type="hidden" name="calc" value="true"><input type="hidden" name="goTo" value="/Kategorien.jsp"><table border="1" id="tablette" ><tr><td><button type="button" onclick="buttonprevious()">Previous</button></td>' + bild + tempstring + '<td valign="bottom"> <input name="addToList" class="add" type="submit" value="+"></td><td><button type="button" onclick="buttonnext()">Next</button></td>	</tr></table> </form>';
